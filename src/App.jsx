@@ -1,11 +1,11 @@
-import './App.css';
+import Form from './components/Form';
+import Result from './components/Result';
 
 function App() {
   return (
-    <section className='body-font font-poppins'>
-      <h1 className='text-2xl font-bold text-center'>
-        Hello Age Calculator App
-      </h1>
+    <section className='body-font font-poppins flex flex-col gap-8'>
+      <Form />
+      <Result />
     </section>
   );
 }
