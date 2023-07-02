@@ -1,9 +1,14 @@
-export default function Result() {
+import calculateAge from '../../lib/age';
+
+export default function Result({ date }) {
+  // if date is not established, default value is undefined
+  const age = calculateAge(date);
+
   return (
     <div>
-      <p>-- years</p>
-      <p>-- months</p>
-      <p>-- days</p>
+      <p>{date === undefined ? '--' : age.years} years</p>
+      <p>{date === undefined ? '--' : age.months} months</p>
+      <p>{date === undefined ? '--' : age.days} days</p>
     </div>
   );
 }

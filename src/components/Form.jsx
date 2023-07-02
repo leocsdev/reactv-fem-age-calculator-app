@@ -1,8 +1,16 @@
-export default function Form() {
+import { useState } from 'react';
+
+export default function Form({ getDate }) {
+  const [day, setDay] = useState('');
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log('submitted');
+    const date = `${year}-${month}-${day}`;
+
+    getDate(date);
   };
 
   return (
@@ -15,6 +23,8 @@ export default function Form() {
           id='day'
           placeholder='DD'
           className='border'
+          onChange={(e) => setDay(e.target.value)}
+          value={day}
         />
       </div>
       <div className='flex flex-col items-start pb-2'>
@@ -25,6 +35,8 @@ export default function Form() {
           id='month'
           placeholder='MM'
           className='border'
+          onChange={(e) => setMonth(e.target.value)}
+          value={month}
         />
       </div>
       <div className='flex flex-col items-start pb-2'>
@@ -35,6 +47,8 @@ export default function Form() {
           id='year'
           placeholder='YYYY'
           className='border'
+          onChange={(e) => setYear(e.target.value)}
+          value={year}
         />
       </div>
       <button type='submit'>Submit</button>
