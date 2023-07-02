@@ -1,4 +1,4 @@
-import calculateAge from '../../lib/age';
+import { calculateAge } from '../../lib/dateHelper';
 
 export default function Result({ date }) {
   // if date is not established, default value is undefined

@@ -1,55 +1,62 @@
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { getDay, getMonth, getYear } from '../../lib/dateHelper';
 
 export default function Form({ getDate }) {
-  const [day, setDay] = useState('');
-  const [month, setMonth] = useState('');
-  const [year, setYear] = useState('');
+  const currentYear = getYear();
+  const currentMonth = getMonth();
+  const currentDay = getDay();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-    const date = `${year}-${month}-${day}`;
-
+  const onSubmit = (data) => {
+    const date = `${data.year}-${data.month}-${data.day}`;
     getDate(date);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col items-start pb-2'>
         <label htmlFor='day'>Day</label>
         <input
           type='number'
-          name='day'
-          id='day'
           placeholder='DD'
           className='border'
-          onChange={(e) => setDay(e.target.value)}
-          value={day}
+          {...register('day', { required: true, min: 1, max: 31 })}
         />
+        {errors.day?.type === 'required' && <p>This field is required</p>}
+        {errors.day?.type === 'min' && <p>Must be a valid day</p>}
+        {errors.day?.type === 'max' && <p>Must be a valid day</p>}
       </div>
       <div className='flex flex-col items-start pb-2'>
         <label htmlFor='month'>Month</label>
         <input
           type='number'
-          name='month'
-          id='month'
           placeholder='MM'
           className='border'
-          onChange={(e) => setMonth(e.target.value)}
-          value={month}
+          {...register('month', { required: true, min: 1, max: 12 })}
         />
+        {errors.month?.type === 'required' && <p>This field is required</p>}
+        {errors.month?.type === 'min' && <p>Must be a valid month</p>}
       </div>
       <div className='flex flex-col items-start pb-2'>
         <label htmlFor='year'>Year</label>
         <input
           type='number'
-          name='year'
-          id='year'
           placeholder='YYYY'
           className='border'
-          onChange={(e) => setYear(e.target.value)}
-          value={year}
+          {...register('year', {
+            required: true,
+            min: 100,
+            max: currentYear,
+          })}
         />
+        {errors.year?.type === 'required' && <p>This field is required</p>}
+        {errors.year?.type === 'min' && <p>Must be a valid year</p>}
+        {errors.year?.type === 'max' && <p>Must be in the past</p>}
       </div>
       <button type='submit'>Submit</button>
     </form>
