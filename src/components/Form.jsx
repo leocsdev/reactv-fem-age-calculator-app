@@ -96,14 +96,14 @@ export default function Form({ setDate }) {
       onSubmit={handleSubmit(onSubmit)}
       className='relative border-b-[1px] pb-16 mb-16'
     >
-      <section className='grid grid-cols-3 gap-4'>
+      <section className='grid grid-cols-3 gap-4 md:gap-6 md:w-3/4'>
         <div>
           <label
             htmlFor='day'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400'
-                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400 md:text-sm'
+                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey md:text-sm'
             }
           >
             Day
@@ -114,24 +114,24 @@ export default function Form({ setDate }) {
             placeholder='DD'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md'
-                : 'border w-full font-bold text-xl px-4 py-2 rounded-md'
+                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg'
+                : 'border w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg'
             }
             {...register('day', { required: true, min: 1, max: maxDays })}
             onChange={handleDayChange}
           />
           {errors.day?.type === 'required' && (
-            <p className='pt-1 text-[10px] italic text-red-400'>
+            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
               This field is required
             </p>
           )}
           {errors.day?.type === 'min' && (
-            <p className='pt-1 text-[10px] italic text-red-400'>
+            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
               Must be a valid day
             </p>
           )}
           {errors.day?.type === 'max' && (
-            <p className='pt-1 text-[10px] italic text-red-400'>
+            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
               Must be a valid day
             </p>
           )}
@@ -141,8 +141,8 @@ export default function Form({ setDate }) {
             htmlFor='month'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400'
-                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400 md:text-sm'
+                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey md:text-sm'
             }
           >
             Month
@@ -153,8 +153,8 @@ export default function Form({ setDate }) {
             placeholder='MM'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md'
-                : 'border w-full font-bold text-xl px-4 py-2 rounded-md'
+                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg'
+                : 'border w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg'
             }
             {...register('month', {
               required: true,
@@ -164,17 +164,17 @@ export default function Form({ setDate }) {
             onChange={handleMonthChange}
           />
           {errors.month?.type === 'required' && (
-            <p className='pt-1 text-[10px] italic text-red-400'>
+            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
               This field is required
             </p>
           )}
           {errors.month?.type === 'min' && (
-            <p className='pt-1 text-[10px] italic text-red-400'>
+            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
               Must be a valid month
             </p>
           )}
           {errors.month?.type === 'max' && (
-            <p className='pt-1 text-[10px] italic text-red-400'>
+            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
               Must be a valid month
             </p>
           )}
@@ -184,8 +184,8 @@ export default function Form({ setDate }) {
             htmlFor='year'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400'
-                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400 md:text-sm'
+                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey md:text-sm'
             }
           >
             Year
@@ -196,8 +196,8 @@ export default function Form({ setDate }) {
             placeholder='YYYY'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md'
-                : 'border w-full font-bold text-xl px-4 py-2 rounded-md'
+                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg'
+                : 'border w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg'
             }
             {...register('year', {
               required: true,
@@ -207,17 +207,17 @@ export default function Form({ setDate }) {
             onChange={handleYearChange}
           />
           {errors.year?.type === 'required' && (
-            <p className='pt-1 text-[10px] italic text-red-400'>
+            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
               This field is required
             </p>
           )}
           {errors.year?.type === 'min' && (
-            <p className='pt-1 text-[10px] italic text-red-400'>
+            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
               Must be a valid year
             </p>
           )}
           {errors.year?.type === 'max' && (
-            <p className='pt-1 text-[10px] italic text-red-400'>
+            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
               Must be in the past
             </p>
           )}
@@ -225,15 +225,15 @@ export default function Form({ setDate }) {
       </section>
       <button
         type='submit'
-        className='absolute bottom-0 left-[50%] translate-y-[50%] -translate-x-[50%] '
+        className='absolute bottom-0 left-[50%] translate-y-[50%] -translate-x-[50%] md:left-[80%] md:translate-x-[50%]'
       >
         <img
           src={arrow}
           alt='arrow button'
           srcSet=''
-          className='bg-myPurple hover:bg-offBlack rounded-full p-4 '
-          width={64}
-          height={64}
+          className='bg-myPurple hover:bg-offBlack rounded-full p-4 md:p-6 w-[64px] md:w-[98px]'
+          width={0}
+          height={0}
         />
       </button>
     </form>
