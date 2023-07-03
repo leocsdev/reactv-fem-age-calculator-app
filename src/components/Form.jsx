@@ -231,7 +231,7 @@ export default function Form({ setDate }) {
           src={arrow}
           alt='arrow button'
           srcSet=''
-          className='bg-purple hover:bg-offBlack rounded-full p-4 '
+          className='bg-myPurple hover:bg-offBlack rounded-full p-4 '
           width={64}
           height={64}
         />

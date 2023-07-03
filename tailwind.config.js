@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         // Primary
-        purple: 'hsl(259, 100%, 65%)',
+        myPurple: 'hsl(259, 100%, 65%)',
         lightRed: 'hsl(0, 100%, 67%)',
         // Neutral
         offWhite: 'hsl(0, 0%, 94%)',

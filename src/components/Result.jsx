@@ -6,9 +6,24 @@ export default function Result({ date }) {
 
   return (
     <div>
-      <p>{date === undefined ? '--' : age.years} years</p>
-      <p>{date === undefined ? '--' : age.months} months</p>
-      <p>{date === undefined ? '--' : age.days} days</p>
+      <p className='font-extrabold italic text-[52px] leading-none'>
+        <span className=' text-myPurple'>
+          {date === undefined ? '--' : age.years}
+        </span>{' '}
+        years
+      </p>
+      <p className='font-extrabold italic text-[52px] leading-none'>
+        <span className=' text-myPurple'>
+          {date === undefined ? '--' : age.months}
+        </span>{' '}
+        months
+      </p>
+      <p className='font-extrabold italic text-[52px] leading-none'>
+        <span className=' text-myPurple'>
+          {date === undefined ? '--' : age.days}
+        </span>{' '}
+        days
+      </p>
     </div>
   );
 }
