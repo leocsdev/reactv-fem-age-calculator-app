@@ -6,10 +6,12 @@ function App() {
   const [date, setDate] = useState(undefined);
 
   return (
-    <section className='body-font font-poppins flex flex-col gap-8'>
-      <Form setDate={setDate} />
-      <Result date={date} />
-    </section>
+    <main className='body-font font-poppins h-screen flex flex-col p-4 items-center justify-center bg-offWhite text-[24px]'>
+      <section className='bg-white px-6 py-14 rounded-3xl rounded-br-[96px]'>
+        <Form setDate={setDate} />
+        <Result date={date} />
+      </section>
+    </main>
   );
 }
 

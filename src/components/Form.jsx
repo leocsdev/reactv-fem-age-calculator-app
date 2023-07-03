@@ -92,56 +92,73 @@ export default function Form({ setDate }) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className='flex flex-col items-start pb-2'>
-        <label htmlFor='day'>Day</label>
-        <input
-          id='day'
-          type='number'
-          placeholder='DD'
-          className='border'
-          {...register('day', { required: true, min: 1, max: maxDays })}
-          onChange={handleDayChange}
-        />
-        {errors.day?.type === 'required' && <p>This field is required</p>}
-        {errors.day?.type === 'min' && <p>Must be a valid day</p>}
-        {errors.day?.type === 'max' && <p>Must be a valid day</p>}
-      </div>
-      <div className='flex flex-col items-start pb-2'>
-        <label htmlFor='month'>Month</label>
-        <input
-          id='month'
-          type='number'
-          placeholder='MM'
-          className='border'
-          {...register('month', {
-            required: true,
-            min: 1,
-            max: 12,
-          })}
-          onChange={handleMonthChange}
-        />
-        {errors.month?.type === 'required' && <p>This field is required</p>}
-        {errors.month?.type === 'min' && <p>Must be a valid month</p>}
-        {errors.month?.type === 'max' && <p>Must be a valid month</p>}
-      </div>
-      <div className='flex flex-col items-start pb-2'>
-        <label htmlFor='year'>Year</label>
-        <input
-          id='year'
-          type='number'
-          placeholder='YYYY'
-          className='border'
-          {...register('year', {
-            required: true,
-            min: 100,
-            max: currentYear,
-          })}
-          onChange={handleYearChange}
-        />
-        {errors.year?.type === 'required' && <p>This field is required</p>}
-        {errors.year?.type === 'min' && <p>Must be a valid year</p>}
-        {errors.year?.type === 'max' && <p>Must be in the past</p>}
-      </div>
+      <section className='grid grid-cols-3 gap-4'>
+        <div>
+          <label
+            htmlFor='day'
+            className='text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+          >
+            Day
+          </label>
+          <input
+            id='day'
+            type='number'
+            placeholder='DD'
+            className='border w-full font-bold text-xl px-4 py-2 rounded-md'
+            {...register('day', { required: true, min: 1, max: maxDays })}
+            onChange={handleDayChange}
+          />
+          {errors.day?.type === 'required' && <p>This field is required</p>}
+          {errors.day?.type === 'min' && <p>Must be a valid day</p>}
+          {errors.day?.type === 'max' && <p>Must be a valid day</p>}
+        </div>
+        <div>
+          <label
+            htmlFor='month'
+            className='text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+          >
+            Month
+          </label>
+          <input
+            id='month'
+            type='number'
+            placeholder='MM'
+            className='border w-full font-bold text-xl px-4 py-2 rounded-md'
+            {...register('month', {
+              required: true,
+              min: 1,
+              max: 12,
+            })}
+            onChange={handleMonthChange}
+          />
+          {errors.month?.type === 'required' && <p>This field is required</p>}
+          {errors.month?.type === 'min' && <p>Must be a valid month</p>}
+          {errors.month?.type === 'max' && <p>Must be a valid month</p>}
+        </div>
+        <div>
+          <label
+            htmlFor='year'
+            className='text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+          >
+            Year
+          </label>
+          <input
+            id='year'
+            type='number'
+            placeholder='YYYY'
+            className='border w-full font-bold text-xl px-4 py-2 rounded-md'
+            {...register('year', {
+              required: true,
+              min: 100,
+              max: currentYear,
+            })}
+            onChange={handleYearChange}
+          />
+          {errors.year?.type === 'required' && <p>This field is required</p>}
+          {errors.year?.type === 'min' && <p>Must be a valid year</p>}
+          {errors.year?.type === 'max' && <p>Must be in the past</p>}
+        </div>
+      </section>
       <button type='submit'>Submit</button>
     </form>
   );
