@@ -5,13 +5,9 @@ import Result from './components/Result';
 function App() {
   const [date, setDate] = useState(undefined);
 
-  const getDate = (date) => {
-    setDate(date);
-  };
-
   return (
     <section className='body-font font-poppins flex flex-col gap-8'>
-      <Form getDate={getDate} />
+      <Form setDate={setDate} />
       <Result date={date} />
     </section>
   );

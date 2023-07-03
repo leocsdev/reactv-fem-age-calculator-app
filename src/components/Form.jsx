@@ -7,7 +7,7 @@ import {
   getCurrentYear,
 } from '../../lib/dateHelper';
 
-export default function Form({ getDate }) {
+export default function Form({ setDate }) {
   const [maxDays, setMaxDays] = useState(31);
 
   const currentYear = getCurrentYear();
@@ -27,7 +27,7 @@ export default function Form({ getDate }) {
   const onSubmit = (data) => {
     const date = `${data.year}-${data.month}-${data.day}`;
 
-    getDate(date);
+    setDate(date);
   };
 
   // check maxDays and current date values
