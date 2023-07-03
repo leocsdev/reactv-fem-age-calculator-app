@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import arrow from '../assets/icon-arrow.svg';
 
 import {
   getCurrentDay,
@@ -91,12 +92,19 @@ export default function Form({ setDate }) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className='relative border-b-[1px] pb-16 mb-16'
+    >
       <section className='grid grid-cols-3 gap-4'>
         <div>
           <label
             htmlFor='day'
-            className='text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+            className={
+              ['required', 'min', 'max'].includes(errors.day?.type)
+                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400'
+                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+            }
           >
             Day
           </label>
@@ -104,18 +112,38 @@ export default function Form({ setDate }) {
             id='day'
             type='number'
             placeholder='DD'
-            className='border w-full font-bold text-xl px-4 py-2 rounded-md'
+            className={
+              ['required', 'min', 'max'].includes(errors.day?.type)
+                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md'
+                : 'border w-full font-bold text-xl px-4 py-2 rounded-md'
+            }
             {...register('day', { required: true, min: 1, max: maxDays })}
             onChange={handleDayChange}
           />
-          {errors.day?.type === 'required' && <p>This field is required</p>}
-          {errors.day?.type === 'min' && <p>Must be a valid day</p>}
-          {errors.day?.type === 'max' && <p>Must be a valid day</p>}
+          {errors.day?.type === 'required' && (
+            <p className='pt-1 text-[10px] italic text-red-400'>
+              This field is required
+            </p>
+          )}
+          {errors.day?.type === 'min' && (
+            <p className='pt-1 text-[10px] italic text-red-400'>
+              Must be a valid day
+            </p>
+          )}
+          {errors.day?.type === 'max' && (
+            <p className='pt-1 text-[10px] italic text-red-400'>
+              Must be a valid day
+            </p>
+          )}
         </div>
         <div>
           <label
             htmlFor='month'
-            className='text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+            className={
+              ['required', 'min', 'max'].includes(errors.day?.type)
+                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400'
+                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+            }
           >
             Month
           </label>
@@ -123,7 +151,11 @@ export default function Form({ setDate }) {
             id='month'
             type='number'
             placeholder='MM'
-            className='border w-full font-bold text-xl px-4 py-2 rounded-md'
+            className={
+              ['required', 'min', 'max'].includes(errors.day?.type)
+                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md'
+                : 'border w-full font-bold text-xl px-4 py-2 rounded-md'
+            }
             {...register('month', {
               required: true,
               min: 1,
@@ -131,14 +163,30 @@ export default function Form({ setDate }) {
             })}
             onChange={handleMonthChange}
           />
-          {errors.month?.type === 'required' && <p>This field is required</p>}
-          {errors.month?.type === 'min' && <p>Must be a valid month</p>}
-          {errors.month?.type === 'max' && <p>Must be a valid month</p>}
+          {errors.month?.type === 'required' && (
+            <p className='pt-1 text-[10px] italic text-red-400'>
+              This field is required
+            </p>
+          )}
+          {errors.month?.type === 'min' && (
+            <p className='pt-1 text-[10px] italic text-red-400'>
+              Must be a valid month
+            </p>
+          )}
+          {errors.month?.type === 'max' && (
+            <p className='pt-1 text-[10px] italic text-red-400'>
+              Must be a valid month
+            </p>
+          )}
         </div>
         <div>
           <label
             htmlFor='year'
-            className='text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+            className={
+              ['required', 'min', 'max'].includes(errors.day?.type)
+                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400'
+                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey'
+            }
           >
             Year
           </label>
@@ -146,7 +194,11 @@ export default function Form({ setDate }) {
             id='year'
             type='number'
             placeholder='YYYY'
-            className='border w-full font-bold text-xl px-4 py-2 rounded-md'
+            className={
+              ['required', 'min', 'max'].includes(errors.day?.type)
+                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md'
+                : 'border w-full font-bold text-xl px-4 py-2 rounded-md'
+            }
             {...register('year', {
               required: true,
               min: 100,
@@ -154,12 +206,36 @@ export default function Form({ setDate }) {
             })}
             onChange={handleYearChange}
           />
-          {errors.year?.type === 'required' && <p>This field is required</p>}
-          {errors.year?.type === 'min' && <p>Must be a valid year</p>}
-          {errors.year?.type === 'max' && <p>Must be in the past</p>}
+          {errors.year?.type === 'required' && (
+            <p className='pt-1 text-[10px] italic text-red-400'>
+              This field is required
+            </p>
+          )}
+          {errors.year?.type === 'min' && (
+            <p className='pt-1 text-[10px] italic text-red-400'>
+              Must be a valid year
+            </p>
+          )}
+          {errors.year?.type === 'max' && (
+            <p className='pt-1 text-[10px] italic text-red-400'>
+              Must be in the past
+            </p>
+          )}
         </div>
       </section>
-      <button type='submit'>Submit</button>
+      <button
+        type='submit'
+        className='absolute bottom-0 left-[50%] translate-y-[50%] -translate-x-[50%] '
+      >
+        <img
+          src={arrow}
+          alt='arrow button'
+          srcSet=''
+          className='bg-purple hover:bg-offBlack rounded-full p-4 '
+          width={64}
+          height={64}
+        />
+      </button>
     </form>
   );
 }
