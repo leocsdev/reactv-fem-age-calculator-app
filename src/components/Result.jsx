@@ -5,25 +5,25 @@ export default function Result({ date }) {
   const age = calculateAge(date);
 
   return (
-    <div>
-      <p className='font-extrabold italic text-[52px] leading-none md:text-8xl'>
+    <ul>
+      <li className='result-item'>
         <span className=' text-myPurple'>
           {date === undefined ? '--' : age.years}
         </span>{' '}
         years
-      </p>
-      <p className='font-extrabold italic text-[52px] leading-none md:text-8xl'>
+      </li>
+      <li className='result-item'>
         <span className=' text-myPurple'>
           {date === undefined ? '--' : age.months}
         </span>{' '}
         months
-      </p>
-      <p className='font-extrabold italic text-[52px] leading-none md:text-8xl'>
+      </li>
+      <li className='result-item'>
         <span className=' text-myPurple'>
           {date === undefined ? '--' : age.days}
         </span>{' '}
         days
-      </p>
-    </div>
+      </li>
+    </ul>
   );
 }

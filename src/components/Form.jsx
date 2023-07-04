@@ -102,8 +102,8 @@ export default function Form({ setDate }) {
             htmlFor='day'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400 md:text-sm'
-                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey md:text-sm'
+                ? 'label-error'
+                : 'label-default'
             }
           >
             Day
@@ -114,26 +114,20 @@ export default function Form({ setDate }) {
             placeholder='DD'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg active:outline-none focus:outline-none'
-                : 'border w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg active:outline active:outline-purple-500 focus:outline focus:outline-purple-500 hover:outline-purple-500'
+                ? 'input-error'
+                : 'input-default'
             }
             {...register('day', { required: true, min: 1, max: maxDays })}
             onChange={handleDayChange}
           />
           {errors.day?.type === 'required' && (
-            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
-              This field is required
-            </p>
+            <p className='error-message'>This field is required</p>
           )}
           {errors.day?.type === 'min' && (
-            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
-              Must be a valid day
-            </p>
+            <p className='error-message'>Must be a valid day</p>
           )}
           {errors.day?.type === 'max' && (
-            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
-              Must be a valid day
-            </p>
+            <p className='error-message'>Must be a valid day</p>
           )}
         </div>
         <div>
@@ -141,8 +135,8 @@ export default function Form({ setDate }) {
             htmlFor='month'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400 md:text-sm'
-                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey md:text-sm'
+                ? 'label-error'
+                : 'label-default'
             }
           >
             Month
@@ -153,8 +147,8 @@ export default function Form({ setDate }) {
             placeholder='MM'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg active:outline-none focus:outline-none'
-                : 'border w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg active:outline active:outline-purple-500 focus:outline focus:outline-purple-500 hover:outline-purple-500'
+                ? 'input-error'
+                : 'input-default'
             }
             {...register('month', {
               required: true,
@@ -164,19 +158,13 @@ export default function Form({ setDate }) {
             onChange={handleMonthChange}
           />
           {errors.month?.type === 'required' && (
-            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
-              This field is required
-            </p>
+            <p className='error-message'>This field is required</p>
           )}
           {errors.month?.type === 'min' && (
-            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
-              Must be a valid month
-            </p>
+            <p className='error-message'>Must be a valid month</p>
           )}
           {errors.month?.type === 'max' && (
-            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
-              Must be a valid month
-            </p>
+            <p className='error-message'>Must be a valid month</p>
           )}
         </div>
         <div>
@@ -184,8 +172,8 @@ export default function Form({ setDate }) {
             htmlFor='year'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'text-[12px] uppercase font-bold tracking-[3px] text-red-400 md:text-sm'
-                : 'text-[12px] uppercase font-bold tracking-[3px] text-smokeGrey md:text-sm'
+                ? 'label-error'
+                : 'label-default'
             }
           >
             Year
@@ -196,8 +184,8 @@ export default function Form({ setDate }) {
             placeholder='YYYY'
             className={
               ['required', 'min', 'max'].includes(errors.day?.type)
-                ? 'border border-red-400 w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg active:outline-none focus:outline-none'
-                : 'border w-full font-bold text-xl px-4 py-2 rounded-md md:text-3xl md:rounded-lg active:outline active:outline-purple-500 focus:outline focus:outline-purple-500 hover:outline-purple-500'
+                ? 'input-error'
+                : 'input-default'
             }
             {...register('year', {
               required: true,
@@ -207,19 +195,13 @@ export default function Form({ setDate }) {
             onChange={handleYearChange}
           />
           {errors.year?.type === 'required' && (
-            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
-              This field is required
-            </p>
+            <p className='error-message'>This field is required</p>
           )}
           {errors.year?.type === 'min' && (
-            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
-              Must be a valid year
-            </p>
+            <p className='error-message'>Must be a valid year</p>
           )}
           {errors.year?.type === 'max' && (
-            <p className='pt-1 text-[10px] italic text-red-400 md:pt-2 md:text-[12px]'>
-              Must be in the past
-            </p>
+            <p className='error-message'>Must be in the past</p>
           )}
         </div>
       </section>
@@ -231,7 +213,7 @@ export default function Form({ setDate }) {
           src={arrow}
           alt='arrow button'
           srcSet=''
-          className='bg-myPurple hover:bg-offBlack rounded-full p-4 md:p-6 w-[64px] md:w-[98px]'
+          className='btn-default'
           width={0}
           height={0}
         />
