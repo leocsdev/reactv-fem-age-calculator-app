@@ -26,11 +26,8 @@ export default function Form({ setDate }) {
   const monthsWithLess31Days = [2, 4, 6, 9, 11];
 
   const onSubmit = (data) => {
-    // some of data content is string, convert those string
-    // to integer befor passing to setDate function
-    const dateArrStr = [data.year, data.month, data.day];
-    const dateArrNum = dateArrStr.map((num) => parseInt(num));
-    setDate(dateArrNum);
+    const date = `${data.year}-${data.month}-${data.day}`;
+    setDate(date);
   };
 
   // check maxDays and current date values
